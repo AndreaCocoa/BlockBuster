@@ -160,6 +160,18 @@ void BuscarPelicula(EmpresaX const &x) {
 
 
 
+// ------- sobrecarga de BUSCAR PELICULA ----------
+Pelicula BuscarPelicula(EmpresaX x, string nombre) {
+    for (int i = 0; i < x.listado_peliculas.size(); i++) {
+        if (x.listado_peliculas[i].getNombre() == nombre) return x.listado_peliculas[i];
+    }
+    return Pelicula();
+}
+
+// ------------------------------------------------
+
+
+
 // ALQUILAR PELICULA
 void AlquilarPelicula(EmpresaX &x) {
     string dni;
@@ -172,6 +184,7 @@ void AlquilarPelicula(EmpresaX &x) {
 
     // Verificar si el usuario está registrado
     bool usuario_registrado = false;
+    // FALTA VERIFICAR SI EL USUARIO ESTÁ REGISTRADO
 
     if (!usuario_registrado) {
         cout << "Usted no está registrado. Derivando al registro de usuario..." << endl;
@@ -186,7 +199,7 @@ void AlquilarPelicula(EmpresaX &x) {
 
     if (pelicula.nombre.empty()) {
         cout << "La película no existe." << endl;
-        return;
+        // return;
     }
 
     // Verificar disponibilidad
@@ -220,16 +233,6 @@ void AlquilarPelicula(EmpresaX &x) {
     }
 }
 
-// ------- sobrecarga de BUSCAR PELICULA ----------
-Pelicula BuscarPelicula(EmpresaX x, string nombre) {
-    for (int i = 0; i < x.listado_peliculas.size(); i++) {
-        if (x.listado_peliculas[i].getNombre() == nombre) return x.listado_peliculas[i];
-    }
-    return Pelicula();
-}
-
-// ------------------------------------------------
-
 
 // DEVOLVER PELICULA
 void DevolverPelicula(EmpresaX &x) {
@@ -240,12 +243,14 @@ void DevolverPelicula(EmpresaX &x) {
     cout << "Ingrese el nombre o ID de la película a devolver: ";
     cin >> nombre_pelicula;
 
+    // FALTA VERIFICAR SI ES NOMBRE O ID
+
     // Buscar la película en el listado
     Pelicula pelicula = BuscarPelicula(x, nombre_pelicula);
 
     if (pelicula.nombre.empty()) {
         cout << "La película no existe o no se ha solicitado un alquiler." << endl;
-        return;
+        // return;
     }
 
     cout << "Ingrese el ranking nuevo de la película: ";
@@ -274,4 +279,4 @@ void DevolverPelicula(EmpresaX &x) {
 }
 
 
-// REPORTE PELICULA ES MOSTRAR DATOS:
+// REPORTE PELICULA ES MOSTRAR DATOS

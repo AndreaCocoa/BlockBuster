@@ -16,10 +16,12 @@ using namespace std;
 
 Pelicula registrarPelicula();
 Usuario registrarUsuario();
+Pelicula BuscarPelicula(EmpresaX x, string nombre);
 void BuscarNombre(EmpresaX const &x);
 void BuscarAnio(EmpresaX const &x);
 void BuscarRanking(EmpresaX const &x);
 void BuscarPelicula(EmpresaX const &x);
 void AlquilarPelicula(EmpresaX &x);
 void DevolverPelicula(EmpresaX &x);
+
 #endif

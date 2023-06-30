@@ -2,7 +2,7 @@
 #define CLASE_PELICULA
 
 #include <iostream>
-#include <string>
+// #include <string>
 
 using namespace std;
 
@@ -15,10 +15,9 @@ private:
 
 public:
     Pelicula();
-    Pelicula(string nombre, string anio_publicacion, int cantidad_ejemplares, int ranking);  
-    Pelicula::Pelicula(string nombre_pelicula, string anio_publicacion, int ejemplares_disponibles);
+    Pelicula(string _nombre, string _anio_publicacion, int _cantidad_ejemplares, int _ranking);  
+    Pelicula(string nombre_pelicula, string anio_publicacion, int ejemplares_disponibles);
     void mostrarDatos();
-    ~Pelicula();
 
     // Getters
     string getNombre();
@@ -28,6 +27,8 @@ public:
 
     friend void DevolverPelicula(EmpresaX &x);
     friend void AlquilarPelicula(EmpresaX &x);
+
+    ~Pelicula();
 };
 
 #endif

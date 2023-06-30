@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Pelicula.cpp"
+#include "Pelicula.h"
 
 using namespace std;
 

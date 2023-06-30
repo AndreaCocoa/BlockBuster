@@ -2,8 +2,7 @@
 
 Pelicula::Pelicula() = default;
 
-Pelicula::Pelicula(string nombre, string anio_publicacion, int cantidad_ejemplares, int ranking)
-: nombre(nombre), anio_publicacion(anio_publicacion), cantidad_ejemplares(cantidad_ejemplares), ranking(ranking) {}
+Pelicula::Pelicula(string _nombre, string _anio_publicacion, int _cantidad_ejemplares, int _ranking): nombre(_nombre), anio_publicacion(_anio_publicacion), cantidad_ejemplares(_cantidad_ejemplares), ranking(_ranking) {}
 
 Pelicula::Pelicula(string nombre_pelicula, string anio_publicacion, int ejemplares_disponibles){
     this -> nombre = nombre_pelicula;
