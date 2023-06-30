@@ -1,6 +1,6 @@
 #include "funciones.h"
 
-// MENU ------------------------
+// MENU ------------------------------
 
 // REGISTRAR PELICULA ------------------------
 Pelicula RegistrarPelicula(){
@@ -70,8 +70,9 @@ void BuscarNombre(EmpresaX const &x) {
     getline(cin, nombre);
 
     for (int i = 0; i < x.listado_peliculas.size(); i++){
-        if (x.listado_peliculas[i].getNombre()==nombre) {
-            x.listado_peliculas[i].mostrarDatos();
+        Pelicula pelicula = x.listado_peliculas[i];
+        if (pelicula.getNombre()==nombre) {
+            pelicula.mostrarDatos();
         }
     }
 }
@@ -82,8 +83,9 @@ void BuscarAnio(EmpresaX const &x) {
     cin >> anio;
 
     for (int i = 0; i < x.listado_peliculas.size(); i++){
-        if (x.listado_peliculas[i].getAnio_publicacion()==anio) {
-            x.listado_peliculas[i].mostrarDatos();
+        Pelicula pelicula = x.listado_peliculas[i];
+        if (pelicula.getAnio_publicacion()==anio) {
+            pelicula.mostrarDatos();
         }
     }
 }
@@ -102,16 +104,18 @@ void BuscarRanking(EmpresaX const &x) {
     {
     case 1:
         for (int i = 0; i < x.listado_peliculas.size(); i++) {
-            if (x.listado_peliculas[i].getRanking()>=ranking) {
-                x.listado_peliculas[i].mostrarDatos();
+            Pelicula pelicula = x.listado_peliculas[i];
+            if (pelicula.getRanking()>=ranking) {
+                pelicula.mostrarDatos();
             }
         }
         break;
 
     case 2:
         for (int i = 0; i < x.listado_peliculas.size(); i++) {
-            if (x.listado_peliculas[i].getRanking()>=ranking) {
-                x.listado_peliculas[i].mostrarDatos();
+            Pelicula pelicula = x.listado_peliculas[i];
+            if (pelicula.getRanking()>=ranking) {
+                pelicula.mostrarDatos();
             }
         }
         break;
@@ -271,6 +275,3 @@ void DevolverPelicula(EmpresaX &x) {
 
 
 // REPORTE PELICULA ES MOSTRAR DATOS:
-
-
-
