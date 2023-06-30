@@ -1,63 +1,46 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "Usuario.h"
 
-using namespace std;
+Usuario::Usuario(string dni, string nombre, string apellido) : dni(dni), nombre(nombre), apellido(apellido) {}
 
-class Pelicula {
-};
+// Setters
+void Usuario::setDni(string dni) {
+    this->dni = dni;
+}
 
-class Usuario {
-private:
-    string dni;
-    string nombre;
-    string apellido;
-    vector<Pelicula> peliculas;
+void Usuario::setNombre(string nombre) {
+    this->nombre = nombre;
+}
 
-public:
-    // Constructor
-    Usuario(string dni, string nombre, string apellido) : dni(dni), nombre(nombre), apellido(apellido) {}
+void Usuario::setApellido(string apellido) {
+    this->apellido = apellido;
+}
 
-    // Setters
-    void setDni(string dni) {
-        this->dni = dni;
-    }
+// Getters
+string Usuario::getDni() const {
+    return dni;
+}
 
-    void setNombre(string nombre) {
-        this->nombre = nombre;
-    }
+string Usuario::getNombre() const {
+    return nombre;
+}
 
-    void setApellido(string apellido) {
-        this->apellido = apellido;
-    }
+string Usuario::getApellido() const {
+    return apellido;
+}
 
-    // Getters
-    string getDni() const {
-        return dni;
-    }
+void Usuario::alquilarPelicula(const Pelicula& pelicula) {
+    peliculas.push_back(pelicula);
+    cout << "La película \"" << pelicula.getTitulo() << "\" ha sido alquilada." << endl;
+}
 
-    string getNombre() const {
-        return nombre;
-    }
-
-    string getApellido() const {
-        return apellido;
-    }
-
-    // Métodos
-    void alquilarPelicula(const Pelicula& pelicula) {
-        peliculas.push_back(pelicula);
-        cout << "La película \"" << pelicula.getTitulo() << "\" ha sido alquilada." << endl;
-    }
-
-    void devolverPelicula(const Pelicula& pelicula) {
-        for (auto it = peliculas.begin(); it != peliculas.end(); ++it) {
-            if (it->getTitulo() == pelicula.getTitulo()) {
-                peliculas.erase(it);
-                cout << "La película \"" << pelicula.getTitulo() << "\" ha sido devuelta." << endl;
-                return;
-            }
+void Usuario::devolverPelicula(const Pelicula& pelicula) {
+    for (auto it = peliculas.begin(); it != peliculas.end(); ++it) {
+        if (it->getTitulo() == pelicula.getTitulo()) {
+            peliculas.erase(it);
+            cout << "La película \"" << pelicula.getTitulo() << "\" ha sido devuelta." << endl;
+            return;
         }
-        cout << "El usuario no tiene alquilada la película \"" << pelicula.getTitulo() << "\"." << endl;
     }
-};
+    cout << "El usuario no tiene alquilada la película \"" << pelicula.getTitulo() << "\"." << endl;
+}
+
