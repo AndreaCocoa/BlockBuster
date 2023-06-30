@@ -23,7 +23,7 @@ void AlquilarPelicula(EmpresaX &x) {
     bool usuario_registrado = false;
 
     if (!usuario_registrado) {
-        cout << "Usted no está registrado. Derivando a RegistrarUsuario()..." << endl;
+        cout << "Usted no está registrado. Derivando al registro de usuario..." << endl;
         RegistrarUsuario();
     }
 
@@ -54,6 +54,13 @@ void AlquilarPelicula(EmpresaX &x) {
 
         // Actualizar cantidad_disponible
         pelicula.cantidad_disponible -= 1;
+
+        // Agregar película a lista de películas del usuario:
+        for (int i = 0; i < x.usuarios.size(); i ++) {
+            if (x.usuarios[i].getDni() == dni) {
+                x.usuarios[i].peliculas.push_back(pelicula);
+            }
+        }
 
         cout << "Monto de alquiler: " << monto_final << endl;
         cout << "¡Alquiler realizado con éxito!" << endl;
